@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{%block opengraph %}
+        <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Shortlog | {{ article.title }}" />
+        <meta property="og:image" content="https://avatars3.githubusercontent.com/u/2821646?v=3&s=200" />
+        <meta property="og:description" content="{{ article.summary|striptags }}" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@debugger22" />
+        <meta name="twitter:title" content="Shortlog | {{ article.title }}" />
+        <meta name="twitter:description" content="{{ article.summary|striptags }}" />
+        <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/2821646?v=3&s=200" />
+        <meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}" />
+        <meta name="keywords" content="sudhanshu mishra, programming, blog" />
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+      {% include 'twitter.html' %}
+    </header>
+
+    <div class="entry-content">
+      {% include 'article_infos.html' %}
+      {{ article.content }}
+    </div><!-- /.entry-content -->
+    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SITENAME }}';
+        var disqus_identifier = '{{ article.url }}';
+        var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+    {% endif %}
+
+  </article>
+</section>
+{% endblock %}
