@@ -3,12 +3,12 @@
 {%block opengraph %}
         <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Shortlog | {{ article.title }}" />
+        <meta property="og:title" content="Shortlog | {{ article.title|striptags }}" />
         <meta property="og:image" content="https://avatars3.githubusercontent.com/u/2821646?v=3&s=200" />
         <meta property="og:description" content="{{ article.summary|striptags }}" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@debugger22" />
-        <meta name="twitter:title" content="Shortlog | {{ article.title }}" />
+        <meta name="twitter:title" content="Shortlog | {{ article.title|striptags }}" />
         <meta name="twitter:description" content="{{ article.summary|striptags }}" />
         <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/2821646?v=3&s=200" />
         <meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}" />
