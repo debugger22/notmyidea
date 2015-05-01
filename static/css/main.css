@@ -30,6 +30,17 @@ body {
     text-align: left;
 }
 
+code{
+    background-color: #ECF0F3;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 80%;
+}
+
+.highlight{
+	font-size: 80%;
+}
+
 /* Headings */
 h1 {font-size: 2em }
 h2 {font-size: 1.571em}	/* 22px */
